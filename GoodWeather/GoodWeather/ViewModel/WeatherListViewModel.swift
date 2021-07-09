@@ -25,7 +25,7 @@ class WeatherListViewModel {
         return WeatherListViewModel.weatherViewModels[index]
     }
     
-    private func toCelcius() {
+    func toCelcius() {
         WeatherListViewModel.weatherViewModels =  WeatherListViewModel.weatherViewModels.map { vm in
             let weatherModel = vm
             weatherModel.temperature = (weatherModel.temperature - 32) * 5/9
@@ -33,8 +33,9 @@ class WeatherListViewModel {
         }
     }
     
-    private func toFahrenheit() {
+    func toFahrenheit() {
         WeatherListViewModel.weatherViewModels =  WeatherListViewModel.weatherViewModels.map { vm in
+            
             let weatherModel = vm
             weatherModel.temperature = (weatherModel.temperature * 9/5) + 32
             return weatherModel

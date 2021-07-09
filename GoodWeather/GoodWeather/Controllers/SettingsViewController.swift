@@ -15,14 +15,21 @@ class SettingsViewController: UITableViewController {
 
     @IBOutlet var rightBarButton: UIBarButtonItem!
     private var settingsViewModel = SettingsViewModel()
+    private var weatherListViewModel = WeatherListViewModel()
     var delegate: SettingsDelegate?
+    let defaultUnit = UserDefaults.standard
+    var defVal: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.title = "Settings"
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.hidesBackButton = true
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
+        defVal = defaultUnit.value(forKey: "unit")! as! String
+        // print(defaultUnit.value(forKey: "unit"))
+        //let defaultUnit = tableVie
         setupUI()
         // Do any additional setup after loading the view.
     }
@@ -39,10 +46,17 @@ class SettingsViewController: UITableViewController {
     
     @objc func donePressed() {
         
-        if let delegate = self.delegate {
-            delegate.settingsDone(vm: settingsViewModel)
+        if defVal == "imperial" && settingsViewModel.selecedUnit.displayName == "Celcius" {
+            WeatherListViewModel().toCelcius()
+            settingsViewModel.selecedUnit = .celsius
+            //defaultUnit.setValue("celcius", forKey: "unit")
+        } else if settingsViewModel.selecedUnit.displayName == "Fahrenheit" && defVal == "metric" {
+            WeatherListViewModel().toFahrenheit()
+            settingsViewModel.selecedUnit = .fahrenheit
+            //defaultUnit.setValue("fahrenheit", forKey: "unit")
         }
-        navigationController?.dismiss(animated: true, completion: nil)
+        
+        navigationController?.popViewController(animated: true)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,6 +64,9 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        
         // uncheck all cells
         tableView.visibleCells.forEach { cell in
             cell.accessoryType = .none

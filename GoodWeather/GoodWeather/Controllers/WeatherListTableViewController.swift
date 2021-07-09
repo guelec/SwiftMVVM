@@ -72,9 +72,7 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate,
     }
     
     @objc func toSettingsViewController() {
-        //navigationController?.pushViewController(SettingsViewController(), animated: true)
-        let vc = UINavigationController(rootViewController: SettingsViewController())
-        navigationController?.present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
