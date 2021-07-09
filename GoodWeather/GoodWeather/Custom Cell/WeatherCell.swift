@@ -54,7 +54,7 @@ class WeatherCell: UITableViewCell {
         temperatureLabel.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 0).isActive = true
         temperatureLabel.leadingAnchor.constraint(equalTo: temperatureLabel.leadingAnchor, constant: 0).isActive = true
         temperatureLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -15).isActive = true
-        temperatureLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2).isActive = true
+        temperatureLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25).isActive = true
         temperatureLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1.0).isActive = true
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         temperatureLabel.textAlignment = .right

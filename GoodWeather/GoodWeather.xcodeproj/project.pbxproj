@@ -24,6 +24,7 @@
 		55647F0C269336D700641EBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55647F0A269336D700641EBF /* LaunchScreen.storyboard */; };
 		55647F1726933FCD00641EBF /* AddWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55647F1626933FCD00641EBF /* AddWeatherViewController.swift */; };
 		55647F192693419F00641EBF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55647F182693419F00641EBF /* SettingsViewController.swift */; };
+		55F1D1B1269846D500A132A3 /* AddWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F1D1B0269846D500A132A3 /* AddWeatherView.swift */; };
 		55FA4B872695A23A00384DD5 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA4B862695A23A00384DD5 /* Double+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		55647F0D269336D700641EBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55647F1626933FCD00641EBF /* AddWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeatherViewController.swift; sourceTree = "<group>"; };
 		55647F182693419F00641EBF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		55F1D1B0269846D500A132A3 /* AddWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeatherView.swift; sourceTree = "<group>"; };
 		55FA4B862695A23A00384DD5 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 		55647EFE269336D300641EBF /* GoodWeather */ = {
 			isa = PBXGroup;
 			children = (
+				55F1D1AF269846B000A132A3 /* View */,
 				555806E726948F36007A9BDA /* Utils */,
 				555806E026946CF6007A9BDA /* Services */,
 				555806DD269434B2007A9BDA /* Extensions */,
@@ -157,6 +160,14 @@
 				55647F182693419F00641EBF /* SettingsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		55F1D1AF269846B000A132A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55F1D1B0269846D500A132A3 /* AddWeatherView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +249,7 @@
 				555806DC26943052007A9BDA /* WeatherCell.swift in Sources */,
 				55647F00269336D300641EBF /* AppDelegate.swift in Sources */,
 				55647F192693419F00641EBF /* SettingsViewController.swift in Sources */,
+				55F1D1B1269846D500A132A3 /* AddWeatherView.swift in Sources */,
 				55647F02269336D300641EBF /* SceneDelegate.swift in Sources */,
 				555806E4269474C6007A9BDA /* WeatherResponse.swift in Sources */,
 				555806DF269434C3007A9BDA /* UIView+Extension.swift in Sources */,

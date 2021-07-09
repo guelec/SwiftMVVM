@@ -19,17 +19,32 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate,
         // Do any additional setup after loading the view.
         super.title = "Good Weather"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.register(WeatherCell.self, forCellReuseIdentifier: "WeatherCell")
-        setupUI()
+        self.tableView.register(WeatherCell.self, forCellReuseIdentifier: "WeatherCell")
+        
         //var addWeatherVC = AddWeatherViewController()
         AddWeatherViewController.delegate = self
         SettingsViewController().delegate = self
-        
+        setupItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
         self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func setupItem() {
+        rightBarButton = {
+            let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.toAddWeatherViewController))
+            navigationItem.rightBarButtonItem = button
+            return button
+        }()
+        
+        leftBarButton = {
+            let button = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(self.toSettingsViewController))
+            navigationItem.leftBarButtonItem = button
+            return button
+        }()
+        
     }
     
     func settingsDone(vm: SettingsViewModel) {
@@ -42,38 +57,21 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate,
  
     func addWeatherDidSave(vm: WeatherViewModel) {
         weatherListViewModel.addWeatherViewModel(vm)
-        //print("City name is \(vm.city) \(vm.temperature)")
-        //tableView.reloadData()
-        
-    }
-    
-    func setupUI() {
-        
-        rightBarButton = {
-            let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.toAddWeatherViewController))
-            self.navigationItem.rightBarButtonItem = button
-            return button
-        }()
-        
-        leftBarButton = {
-            let button = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(self.toSettingsViewController))
-            self.navigationItem.leftBarButtonItem = button
-            return button
-        }()
-        
     }
     
     @objc func toAddWeatherViewController() {
-        /*
-        let addWeatherVC = navigationController?.viewControllers.first as? AddWeatherViewController
-        addWeatherVC?.delegate = self
-        */
         navigationController?.pushViewController(AddWeatherViewController(), animated: true)
     }
     
     @objc func toSettingsViewController() {
         navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
+    
+}
+
+//MARK: - TableView Config
+
+extension WeatherListTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -99,5 +97,5 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate,
         
         return cell
     }
-
+    
 }

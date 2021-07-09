@@ -58,6 +58,11 @@ class SettingsViewController: UITableViewController {
         
         navigationController?.popViewController(animated: true)
     }
+}
+
+//MARK: - TableView Config
+
+extension SettingsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -103,5 +108,4 @@ class SettingsViewController: UITableViewController {
         
         return cell
     }
-
 }
