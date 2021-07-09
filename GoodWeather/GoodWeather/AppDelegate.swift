@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().isTranslucent = false
         }
         
+        setupDefaultSettings()
         // Override point for customization after application launch.
         return true
     }

@@ -27,7 +27,7 @@ class SettingsViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.hidesBackButton = true
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
-        defVal = defaultUnit.value(forKey: "unit")! as! String
+        defVal = defaultUnit.value(forKey: "unit") as! String
         // print(defaultUnit.value(forKey: "unit"))
         //let defaultUnit = tableVie
         setupUI()
